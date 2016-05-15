@@ -16,9 +16,9 @@ using namespace std;
 #define MY_SHADER 1
 #define MY_TEXTURE 1
 #define   TSIZE  64   /* define texture dimension */
-#define radius 1.0
+#define radius 5.0
 #define cubeSize 100
-#define Size 1000
+#define Size 1
 #define gridSize 10
 
 //Directional Light
@@ -51,6 +51,13 @@ int    cube_face[][4] = { {0,1,2,3} ,{4,5,6,7} ,{8,9,10,11},{12,13,14,15} ,{16,1
 float  cube_normals[][3] = { {0,0,1},{1,0,0},{0,0,-1},{-1,0,0},{0,1,0},{0,-1,0} };
 
 float angx = 10.0 ,angy = 0.0;
+
+struct Particle {
+	float pos[3];
+	float color[3];
+	float vel[3];
+};
+vector<Particle> particles;
 
 float ball_pos[Size][3];
 float ball_color[Size][3];
@@ -87,10 +94,7 @@ struct grid {
 	float posX;
 	float posY;
 	float posZ;
-
-	struct grid *next;
 };
-
 vector<vector<grid*>> G;
 
 grid* create_grid(int id, int ballId, float x, float y, float z)
@@ -104,6 +108,38 @@ grid* create_grid(int id, int ballId, float x, float y, float z)
 	n->posY = y;
 	n->posZ = z;
 	return n;
+}
+
+void addParticle(float pos[], float vel[])
+{
+	Particle p;
+	for (int i = 0; i < 3; i++) {
+		p.pos[i] = pos[i];
+		p.vel[i] = vel[i];
+		p.color[i] = (double)rand() / RAND_MAX;
+	}
+	//if (randColor)
+	//{
+	//	p.color[0] = rand() % 200 / 200.0;
+	//	p.color[1] = rand() % 200 / 200.0;
+	//	p.color[2] = rand() % 200 / 200.0;
+	//}
+	//else // if is huge particle make it yellow
+	//{
+	//	p.color[0] = 1;
+	//	p.color[1] = 1;
+	//	p.color[2] = 0;
+	//}
+	particles.push_back(p);
+
+	/*if (line.x1 != 0)
+		line.x1 = line.x2 = line.y1 = line.y2 = 0;*/
+}
+
+void removeParticles()
+{
+	for (int i = 0; i < particles.size(); i++)
+		particles.pop_back();
 }
 
 void ShaderSwitch()
@@ -195,10 +231,13 @@ void Init()
 	eye[1] = Eye[1];
 	eye[2] = Eye[2];
 
+	float tempP[] = { 0,50,0 };
+	float tempV[] = {0};
+	addParticle(tempP, tempV);
 	for (int i = 0; i < Size; i++) {
-		ball_pos[i][0] = rand() % 198 - 99;
-		ball_pos[i][1] = rand() % 198 - 99;
-		ball_pos[i][2] = rand() % 198 - 99;
+		ball_pos[i][0] = 0;
+		ball_pos[i][1] = 20;
+		ball_pos[i][2] = 0;
 		vel[i][0] = rand() % 3 - 1;
 		vel[i][1] = rand() % 3 - 1;
 		vel[i][2] = rand() % 3 - 1;
@@ -363,8 +402,8 @@ void Display()
 	else {
 		for (int i = 0; i < Size; i++) {
 			glPushMatrix();
-			glTranslatef(ball_pos[i][0], ball_pos[i][1], ball_pos[i][2]);
-			glColor3f(ball_color[i][0], ball_color[i][1], ball_color[i][2]);
+			glTranslatef(particles[i].pos[0], particles[i].pos[1], particles[i].pos[2]);
+			glColor3f(particles[i].color[0], particles[i].color[1], particles[i].color[2]);
 			gluSphere(sphere, radius,   /* radius */
 				12,            /* composing of 12 slices*/
 				12);           /* composing of 8 stacks */

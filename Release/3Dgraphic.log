@@ -7,36 +7,33 @@ GLInterface.cpp(35): warning C4838: 從 'double' 到 'float' 的轉換必須是�
 GLInterface.cpp(35): warning C4305: '正在初始化': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
 GLInterface.cpp(36): warning C4838: 從 'double' 到 'float' 的轉換必須是縮小轉換
 GLInterface.cpp(36): warning C4305: '正在初始化': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
-GLInterface.cpp(191): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(192): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(194): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(195): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(196): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(199): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(200): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(201): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(202): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(203): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(204): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(205): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(206): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(207): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(256): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(289): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(290): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(496): warning C4305: '-=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
-GLInterface.cpp(497): warning C4305: '+=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
-GLInterface.cpp(525): warning C4244: '-=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(529): warning C4244: '+=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(533): warning C4244: '+=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(537): warning C4244: '-=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(541): warning C4244: '-=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(545): warning C4244: '+=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-GLInterface.cpp(651): warning C4018: '<': signed/unsigned 不相符
+GLInterface.cpp(119): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(141): warning C4018: '<': signed/unsigned 不相符
+GLInterface.cpp(227): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(228): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(230): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(231): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(232): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(241): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(242): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(243): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(244): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(245): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(246): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(295): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(328): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(329): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(535): warning C4305: '-=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+GLInterface.cpp(536): warning C4305: '+=': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+GLInterface.cpp(564): warning C4244: '-=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(568): warning C4244: '+=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(572): warning C4244: '+=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(576): warning C4244: '-=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(580): warning C4244: '-=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(584): warning C4244: '+=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+GLInterface.cpp(690): warning C4018: '<': signed/unsigned 不相符
   正在產生程式碼
-  3 of 321 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  All 391 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   已完成程式碼產生
-  3Dgraphic.vcxproj -> C:\Users\ms068\Desktop\3Dgraphic\Release\3Dgraphic.exe
-  3Dgraphic.vcxproj -> C:\Users\ms068\Desktop\3Dgraphic\Release\3Dgraphic.pdb (Full PDB)
+  3Dgraphic.vcxproj -> C:\Users\ms068\Desktop\3Dgraphic\3Dgraphic\Release\3Dgraphic.exe
+  3Dgraphic.vcxproj -> C:\Users\ms068\Desktop\3Dgraphic\3Dgraphic\Release\3Dgraphic.pdb (Full PDB)
