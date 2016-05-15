@@ -1,0 +1,14 @@
+﻿main.obj : error LNK2019: 無法解析的外部符號 __imp__glewInit@0 在函式 _main 中被參考
+main.obj : error LNK2001: 無法解析的外部符號 __imp____glewAttachShader
+main.obj : error LNK2001: 無法解析的外部符號 __imp____glewCompileShader
+main.obj : error LNK2001: 無法解析的外部符號 __imp____glewCreateProgram
+main.obj : error LNK2001: 無法解析的外部符號 __imp____glewCreateShader
+main.obj : error LNK2001: 無法解析的外部符號 __imp____glewDeleteProgram
+main.obj : error LNK2001: 無法解析的外部符號 __imp____glewDeleteShader
+main.obj : error LNK2001: 無法解析的外部符號 __imp____glewDetachShader
+main.obj : error LNK2001: 無法解析的外部符號 __imp____glewGetShaderInfoLog
+main.obj : error LNK2001: 無法解析的外部符號 __imp____glewLinkProgram
+main.obj : error LNK2001: 無法解析的外部符號 __imp____glewShaderSource
+main.obj : error LNK2001: 無法解析的外部符號 __imp____glewUseProgram
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\glew32.lib : warning LNK4272: 程式庫電腦類型 'x64' 與目標電腦類型 'X86' 發生衝突
+C:\Users\ms068\Desktop\3Dgraphic\Debug\3Dgraphic.exe : fatal error LNK1120: 12 個無法解析的外部符號
