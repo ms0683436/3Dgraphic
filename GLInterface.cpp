@@ -59,9 +59,9 @@ struct Particle {
 };
 vector<Particle> particles;
 
-float ball_pos[Size][3];
-float ball_color[Size][3];
-float vel[Size][3];
+//float ball_pos[Size][3];
+//float ball_color[Size][3];
+//float vel[Size][3];
 float  CubeN[][3] = { { 0,0,-1 },{ -1,0,0 },{ 0,0,1 },{ 1,0,0 },{ 0,-1,0 },{ 0,1,0 } };
 
 
@@ -231,11 +231,12 @@ void Init()
 	eye[1] = Eye[1];
 	eye[2] = Eye[2];
 
-	float tempP[] = { 0,50,0 };
-	float tempV[] = {0};
-	addParticle(tempP, tempV);
+	float tempP[] = { 0,-50,0 };
+	float tempV[] = {0,0,0};
+	
 	for (int i = 0; i < Size; i++) {
-		ball_pos[i][0] = 0;
+		addParticle(tempP, tempV);
+		/*ball_pos[i][0] = 0;
 		ball_pos[i][1] = 20;
 		ball_pos[i][2] = 0;
 		vel[i][0] = rand() % 3 - 1;
@@ -243,7 +244,7 @@ void Init()
 		vel[i][2] = rand() % 3 - 1;
 		ball_color[i][0] = (double)rand() / RAND_MAX;
 		ball_color[i][1] = (double)rand() / RAND_MAX;
-		ball_color[i][2] = (double)rand() / RAND_MAX;
+		ball_color[i][2] = (double)rand() / RAND_MAX;*/
 	}
 }
 
@@ -383,15 +384,15 @@ void Display()
 		for (int i = 0; i < Size; i++) {
 			float k = 0;
 			for (int j = 0; j < 5; j++) {
-				if (dot(ball_pos[i], plane[j]) + plane[j][3] >= 0)
+				if (dot(particles[i].pos, plane[j]) + plane[j][3] >= 0)
 					k++;
 				else
 					break;
 			}
 			if (k == 5) {
 				glPushMatrix();
-				glTranslatef(ball_pos[i][0], ball_pos[i][1], ball_pos[i][2]);
-				glColor3f(ball_color[i][0], ball_color[i][1], ball_color[i][2]);
+				glTranslatef(particles[i].pos[0], particles[i].pos[1], particles[i].pos[2]);
+				glColor3f(particles[i].color[0], particles[i].color[1], particles[i].color[2]);
 				gluSphere(sphere, radius,   /* radius */
 					12,            /* composing of 12 slices*/
 					12);           /* composing of 8 stacks */
@@ -416,10 +417,10 @@ void Display()
 			for (int z = -cubeSize; z < cubeSize; z += gridSize) {
 				vector <grid*> temp;
 				for (int i = 0; i < Size; i++) {
-					if (ball_pos[i][0] >= (x - radius) && ball_pos[i][0] < (x + radius + gridSize)) {
-						if (ball_pos[i][1] >= (y - radius) && ball_pos[i][1] < (y + radius + gridSize)) {
-							if (ball_pos[i][2] >= (z - radius) && ball_pos[i][2] < (z + radius + gridSize)) {
-								temp.push_back(create_grid(indexG, i, ball_pos[i][0], ball_pos[i][1], ball_pos[i][2]));
+					if (particles[i].pos[0] >= (x - radius) && particles[i].pos[0] < (x + radius + gridSize)) {
+						if (particles[i].pos[1] >= (y - radius) && particles[i].pos[1] < (y + radius + gridSize)) {
+							if (particles[i].pos[2] >= (z - radius) && particles[i].pos[2] < (z + radius + gridSize)) {
+								temp.push_back(create_grid(indexG, i, particles[i].pos[0], particles[i].pos[1], particles[i].pos[2]));
 							}
 						}
 					}	
@@ -673,17 +674,17 @@ void Timer(int c)
 	int index;
 	float tempV[3];
 	for (int i = 0; i < Size; i++) {
-		index = testRange(ball_pos[i]);
+		index = testRange(particles[i].pos);
 		//cout <<  "index:" << index << endl;
 		if (index != 6) {
 			for (int j = 0; j < 3; j++) {
 				//cout << "dot:" << dot(vel[i], CubeN[index]) << endl;
 				//cout << "CubeN:" << CubeN[index][j] << endl;
-				tempV[j] = vel[i][j] - (2 * dot(vel[i], CubeN[index]) * (CubeN[index][j]));
+				tempV[j] = particles[i].vel[j] - (2 * dot(particles[i].vel, CubeN[index]) * (CubeN[index][j]));
 				//cout << "tempV:" << tempV[j] << endl;
 			}
 			for (int j = 0; j < 3; j++)
-				vel[i][j] = tempV[j];
+				particles[i].vel[j] = tempV[j];
 		}
 	}
 	int temp1, temp2;
@@ -696,12 +697,12 @@ void Timer(int c)
 				temp2 = G[i].back()->ballId;
 				G[i].pop_back();
 				for (int z = 0; z < 3; z++)
-					tempP += pow((ball_pos[temp1][z] - ball_pos[temp2][z]), 2);
+					tempP += pow((particles[temp1].pos[z] - particles[temp2].pos[z]), 2);
 				if (tempP <= pow((radius * 2), 2)) {
 					/*cout << vel[temp1][0] << vel[temp1][1] << vel[temp1][2] << endl;
 					cout << vel[temp2][0] << vel[temp2][1] << vel[temp2][2] << endl;*/
-					swap(vel[temp1], vel[temp2]);
-					swap(ball_color[temp1], ball_color[temp2]);
+					swap(particles[temp1].vel, particles[temp2].vel);
+					swap(particles[temp1].color, particles[temp2].color);
 				}
 			}
 		}
@@ -709,7 +710,7 @@ void Timer(int c)
 
 	for (int i = 0; i < Size; i++) {
 		for (int j = 0; j < 3; j++)
-				ball_pos[i][j] += vel[i][j];
+			particles[i].pos[j] += particles[i].vel[j];
 	}
 
 	glutPostRedisplay();
